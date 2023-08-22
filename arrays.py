@@ -1,0 +1,1 @@
+# código referente ao uso de arrays em python
