@@ -6,3 +6,20 @@ try:
     print(f'O numero é {num}')
 except:
     print("Não é um numero")
+
+#uso do none e not none
+
+flag = None
+
+condicao = True
+
+if condicao:
+    flag = True
+
+if flag is None :
+    print("Is None")
+
+if flag is not None:
+    print("Not none")
+
+
