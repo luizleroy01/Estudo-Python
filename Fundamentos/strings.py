@@ -27,7 +27,12 @@ while i < len(string):
 
 print(f'A letra que aparece mais vezes é {letra} com {qtd} repetições') 
 
-#uso do join queintercala um caracter com sua cadeia de caracteres
+#uso do join que  intercala um caracter com sua cadeia de caracteres
 alfa = 'abc'
 intercala = '-'.join(alfa)
 print(intercala)
+
+#imprimindo separadamente cada caracter da string
+string = 'abcdefghijklmnopqrstuvwxyz'
+print(*string)
+print(string,sep="\n")

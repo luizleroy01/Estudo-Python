@@ -18,3 +18,9 @@ elif role == 2 :
     print("Administrador")
 else:
     print("Engenheiro")
+
+
+#condicional ternária com python
+numero = 5
+print("Condicional ternária",end=": ")
+print("par") if numero % 2 == 0 else print("impar")

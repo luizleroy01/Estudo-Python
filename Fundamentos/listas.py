@@ -42,3 +42,10 @@ print(nome,resto)
 
 #limpa a lista
 numeros.clear()
+
+#simulando uma matriz com listas dentro de listas
+matriz = [[1,2,3],[4,5,6],[7,8,9]]
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        print(matriz[i][j],end=" ")
+    print()
