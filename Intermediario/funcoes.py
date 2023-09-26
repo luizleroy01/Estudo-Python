@@ -41,3 +41,16 @@ def f():
     print(x)
 
 f()
+
+#função ecom desempacotamento em python
+def sominha (*args):
+    total = 0
+    for numeros in args:
+        total+=numeros
+
+    return total
+
+numeros = 1,2,3,4,5,6,7,8,9,10,11,12
+val = sominha(*numeros)
+print("valor sominha",val,sep=" ")
+
