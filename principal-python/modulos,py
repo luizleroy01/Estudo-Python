@@ -1,0 +1,10 @@
+#use of modules with python
+#module math
+
+from math import sqrt
+
+quadrado = int(input("Digite um quadrado perfeito para carregar a raiz"))
+
+result = sqrt(quadrado)
+
+print(f"A raiz de {quadrado} eh {result}")
