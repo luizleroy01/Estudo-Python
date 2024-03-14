@@ -1,4 +1,5 @@
 #an example of list method using python
+import os
 
 #crud operations with an task list
 tasks = list()
@@ -38,6 +39,22 @@ def excluir_tarefa(task_id):
         id = int(str("Digite o id da tarefa que deseja excluir:"))
         tasks.remove(id)
 
+def importa_txt(nome_arq):
+    with open(nome_arq,"w") as arquivo:
+        for i in range(len(tasks)):
+            arquivo.write(f"{i+1} - {tasks[i].descricao} : {tasks[i].status} \n")
+    print("Dados salvos com sucesso no arquivo")
+def exportar_lista():
+    print("Escolha a forma como deseja exportar:")
+    print("1 - exportar txt")
+    print("2 - exportar Xls/Xlsx")
+    print("3 - exportar pdf")
+
+    option = int(input("Digite sua opcao de exportacao"))
+    if option == 1:
+        nome_arq = str(inpu("Digite o nome do arquivo que deseja salvar:"))
+        importar_txt(nome_arq)
+
 def menu():
         print("Lista de tarefas")
         print("1 - Adicionar nova tarefa")
@@ -70,10 +87,16 @@ while answer != 7:
         completar_tarefa(id)
 
     elif op == 4 :
+        exibir_tarefas()
         id = int(input("Digite o id da taefa que deseja editar"))
         editar_tarefa(id)
     
     elif op == 5 :
+        exibir_tarefas()
+        id = int(input("Digite o id da tarefa que deseja excluir"))
+        excluir_tarefa(id)
+    
+    elif op == 6 :
         opFiltro =int(input("Digite 1 para filtrar pelo inicio ou 2 para filtrar pelo fim"))
 
         if opFiltro == 1:
@@ -88,6 +111,7 @@ while answer != 7:
             for i in range(len(fim)):
                 print(fim[i],end="\n")
     
+    os.system('cls')
     op = menu()
     #operation encaixar to insert a new task between others
 
