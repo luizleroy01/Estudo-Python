@@ -1,5 +1,5 @@
 #Turn game that consists ona battle between a hero and a vilain
-
+import random
 class Personagem:
     def __init__(self,nome,vida,nivel):
         self.__nome = nome
@@ -19,7 +19,7 @@ class Personagem:
         return f"Nome: {self.get_nome()} Vida: {self.get_vida()} Nivel: {self.get_nivel()}"
 
     def atacar(self,alvo):
-        dano = self.get_nivel() * 2
+        dano = random.randint(self.get_nivel() * 2,self.get_nivel() * 4)
         print(f"O {self.get_nome()} atacou o {alvo.get_nome()} e causou {dano} de dano")
         alvo.set_vida(dano)
 
@@ -41,7 +41,10 @@ class Heroi(Personagem):
         return f"{super().exibir_detalhes()} Habilidade: {self.get_habilidade()}"
     
     def ataque_especial(self,alvo):
-        dano = self.get_nivel() * 5 #dano aumentado
+        dano = random.randint(self.get_nivel() * 5,self.get_nivel() * 8) #dano aumentado
+        alvo.set_vida(dano)
+        print(f"O {self.get_nome()} usou a habilidade especial {self.get_habilidade()} no {alvo.get_nome()} e causou {dano} de dano ")
+    
 
 
 class Inimigo(Personagem):
@@ -76,11 +79,16 @@ class Jogo:
             escolha = int(input("Escolha (1 - Ataque normal) (2-Ataque especial):"))
             if escolha == 1:
                 self.heroi.atacar(self.inimigo)
+            elif escolha == 2:
+                self.heroi.ataque_especial(self.inimigo)
             else:
                 print("Opcao de ataque inválida ... tente novamente")
                 escolha = int(input("Escolha (1 - Ataque normal) (2-Ataque especial):"))
                 if escolha == 1:
                     self.heroi.atacar(self.inimigo)
+            
+            if self.inimigo.get_vida() > 0:
+                self.inimigo.atacar(self.heroi)
         
         if(self.heroi.get_vida() > 0):
             print("parabens !!! voce venceu a batalha")

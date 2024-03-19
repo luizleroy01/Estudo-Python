@@ -36,3 +36,34 @@ for value in student.values():
 print("Key-Value Pairs:")
 for key, value in student.items():
     print(key, ":", value)
+
+# An example of dictionary for a people
+pessoa = {
+    'nome':'Luiz Eduardo',
+    'sobrenome': 'Leroy Souza'
+}
+
+if pessoa.get('idade'):
+    print('A chave existe')
+else:
+    print('A chave não existe')
+    pessoa['idade'] = 22
+
+for chave,valor in pessoa.items():
+    print(chave,valor)
+
+numeros = {'pares': [],
+            'impares':[]
+        }
+num = int(input('Digite um numero'))
+
+while num != 0:
+    if num % 2 == 0:
+        numeros['pares'].append(num)
+    else:
+        numeros['impares'].append(num)
+    num = int(input('Digite um numero'))
+
+listaNumeros = numeros.get('pares')
+for item in listaNumeros:
+    print(item,end=" ")
