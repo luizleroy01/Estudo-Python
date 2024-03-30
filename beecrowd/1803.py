@@ -24,7 +24,7 @@ for i in range(0,num_caractres):
 i =0
 j =0
 while i < 4:
-    while j < 5:
+    while j < tam:
         if j == 0:
             strF.append(matriz[i][j])
         elif j == (tam-1):
