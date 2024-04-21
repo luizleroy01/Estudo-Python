@@ -1,3 +1,4 @@
+import math
 # use of EOF with python
 while True:
     try:
@@ -7,17 +8,13 @@ while True:
         VF = int(entrada[1])
         VG = int(entrada[2])
 
-        auxd1 = 12000 - D
-        auxd2 = 12000 + D
-        escapou = False
-
-        while auxd1 > 0 and auxd2 > 0:
-            auxd1 -= VF
-            auxd2 -= VG
-
-        if auxd1 <= 0:
-            print('N')
-        else:
+        #calculo da trajetória da guarda costeira como se fosse uma hipotenusa
+        dist = math.sqrt(144 + D * D)
+        pf = 12/VF
+        pg = dist/VG
+        if pg <= pf:
             print('S')
+        else:
+            print('N')
     except EOFError:
         break
