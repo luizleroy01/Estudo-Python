@@ -6,7 +6,7 @@ tasks = list()
 def adicionar_tarefa():
      item = str(input("Digite a tarefa que desa incluir na lista:"))
      tarefa = {"descricao": item,"status":false}
-    tasks.append(tarefa)
+     tasks.append(tarefa)
 
 def exibir_tarefas():
     for i in range(len(tasks)):
@@ -39,11 +39,11 @@ def excluir_tarefa(task_id):
         id = int(str("Digite o id da tarefa que deseja excluir:"))
         tasks.remove(id)
 
-def importa_txt(nome_arq):
-    with open(nome_arq,"w") as arquivo:
-        for i in range(len(tasks)):
-            arquivo.write(f"{i+1} - {tasks[i].descricao} : {tasks[i].status} \n")
-    print("Dados salvos com sucesso no arquivo")
+def importa_txt(nome_arq,tasks_list):
+    with open(nome_arq, 'r') as arquivo:
+    # Lê todo o conteúdo do arquivo e armazena em uma variável
+    tasks_list = arquivo.read()
+
 def exportar_lista():
     print("Escolha a forma como deseja exportar:")
     print("1 - exportar txt")
@@ -52,8 +52,12 @@ def exportar_lista():
 
     option = int(input("Digite sua opcao de exportacao"))
     if option == 1:
-        nome_arq = str(inpu("Digite o nome do arquivo que deseja salvar:"))
-        importar_txt(nome_arq)
+        nome_arq = str(input("Digite o nome do arquivo que deseja salvar:"))
+    
+    with open(nome_arq,"w") as arquivo:
+        for i in range(len(tasks)):
+            arquivo.write(f"{i+1} - {tasks[i].descricao} : {tasks[i].status} \n")
+    print("Dados salvos com sucesso no arquivo")
 
 def menu():
         print("Lista de tarefas")
@@ -97,6 +101,8 @@ while answer != 7:
         excluir_tarefa(id)
     
     elif op == 6 :
+        exportar_lista()
+    elif op == 7 :
         opFiltro =int(input("Digite 1 para filtrar pelo inicio ou 2 para filtrar pelo fim"))
 
         if opFiltro == 1:

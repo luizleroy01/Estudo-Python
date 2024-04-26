@@ -10,14 +10,19 @@ while i<N:
     P = float(data[0])
     G = int(data[1])
 
-    aux = 1000  * P
-    total = aux / G
+    if G < 1000:
+        aux = P * 1000
+        aux2 = float(aux /G)
+        total = aux2
+    else:
+        total = P
+
     mercados[i+1] = total
     i+=1
 
 minimo = mercados.get(1)
 for mercado in mercados.values():
-    if mercado < 0:
+    if mercado < minimo:
         minimo = mercado
 
 print(format(minimo,".2f"))
