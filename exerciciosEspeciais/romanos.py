@@ -7,7 +7,11 @@ print(letters['V'])
 
 entrada = 'IV'
 numero = 0
+last = 0
 
-for i in range(0,len(entrada),2):
-    print(entrada[i])
+for simbolo in entrada:
+    if simbolo == 'I':
+        value = letters.get(simbolo)
+        numero -= value
+    elif simbolo == 'X'
         
